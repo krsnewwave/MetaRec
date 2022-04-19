@@ -52,8 +52,8 @@ def preprocess(data_path, save_path, stat_path, sep, train_ratio=0.8, binarize_t
     # Convert ratings into implicit feedback
     data['ratings'] = 1.0
 
-    num_items_by_user = data.groupby('user', as_index=False).size()
-    num_users_by_item = data.groupby('item', as_index=False).size()
+    num_items_by_user = data.groupby('user',).size()
+    num_users_by_item = data.groupby('item',).size()
 
     # Assign new user IDs
     print('Assign new user id...')
